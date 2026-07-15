@@ -34,23 +34,26 @@ Created and maintained by [Xiaotian Liu](mailto:xiaotianliu01@gmail.com).
 
 ## Usage Guide
 
-### 1. Install the skill in Codex
+### 1. Install the skill
 
-Copy the [`or-engineer`](or-engineer/) directory into your Codex skills directory:
+#### Install directly in Codex
 
-```bash
-mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-cp -R ./or-engineer "${CODEX_HOME:-$HOME/.codex}/skills/or-engineer"
+Paste the following command into Codex, replacing the placeholders with this repository's GitHub owner and repository name:
+
+```text
+$skill-installer Install OR-Engineer from: https://github.com/xiaotianliu01/OR-Engineer.git
 ```
 
-On Windows PowerShell:
+#### Download and install manually
 
-```powershell
-New-Item -ItemType Directory -Force "$HOME\.codex\skills" | Out-Null
-Copy-Item -Recurse -Force ".\or-engineer" "$HOME\.codex\skills\or-engineer"
-```
+1. Open the GitHub repository and select **Code → Download ZIP**.
+2. Extract the downloaded archive.
+3. Copy the extracted `or-engineer` directory into the Codex skills directory:
 
-Restart Codex after installation if the skill is not discovered immediately.
+   - **macOS/Linux:** `$CODEX_HOME/skills/or-engineer`, or `~/.codex/skills/or-engineer` when `CODEX_HOME` is not set.
+   - **Windows:** `%USERPROFILE%\.codex\skills\or-engineer`.
+
+Start a new Codex turn after copying the directory. You can then invoke the skill with `$or-engineer`.
 
 ### 2. Start with a decision problem
 
@@ -264,7 +267,7 @@ The result is valid for aggregate store-week sales-dollar decisions. It is not p
 
 <summary><strong>Original prompt</strong></summary>
 
->I'm working on a stochastic Operating Room (OR) scheduling problem using surgical duration data extracted from cav file in this folder.The core task is to assign a set of $N$ elective surgeries to $M$ operating rooms. The main challenge is that the actual duration of each surgery, $D_i$, is a highly variable random variable. Let $x_{ij} \in \{0, 1\}$ be the binary decision variable indicating whether surgery $i$ is assigned to room $j$. Each room has a regular scheduled session length $T_j$. We face a classic trade-off: if the total duration of surgeries in a room falls short, we incur an expensive idle capacity cost $c_u$; if it exceeds the scheduled time, we pay a heavy overtime penalty $c_o$.The objective is to minimize the total expected cost across all rooms:$$\min_{\boldsymbol{x}} \sum_{j=1}^M \mathbb{E} \left[ c_u \max\left(0, T_j - \sum_{i=1}^N D_i x_{ij}\right) + c_o \max\left(0, \sum_{i=1}^N D_i x_{ij} - T_j\right) \right]$$subject to the assignment constraint $\sum_{j=1}^M x_{ij} = 1$ for all $i$.Since evaluating this multidimensional expectation over complex clinical distributions is notoriously difficult, could you help me formulate a tractable mathematical framework for this problem?
+>I'm working on a stochastic Operating Room (OR) scheduling problem using surgical duration data extracted from csv file in this folder.The core task is to assign a set of $N$ elective surgeries to $M$ operating rooms. The main challenge is that the actual duration of each surgery, $D_i$, is a highly variable random variable. Let $x_{ij} \in \{0, 1\}$ be the binary decision variable indicating whether surgery $i$ is assigned to room $j$. Each room has a regular scheduled session length $T_j$. We face a classic trade-off: if the total duration of surgeries in a room falls short, we incur an expensive idle capacity cost $c_u$; if it exceeds the scheduled time, we pay a heavy overtime penalty $c_o$.The objective is to minimize the total expected cost across all rooms: $\min_{\boldsymbol{x}} \sum_{j=1}^M \mathbb{E} \left[ c_u \max\left(0, T_j - \sum_{i=1}^N D_i x_{ij}\right) + c_o \max\left(0, \sum_{i=1}^N D_i x_{ij} - T_j\right) \right]$ subject to the assignment constraint $\sum_{j=1}^M x_{ij} = 1$ for all $i$.Since evaluating this multidimensional expectation over complex clinical distributions is notoriously difficult, could you help me formulate a tractable mathematical framework for this problem?
 
 #### What GPT autonomously built
 
