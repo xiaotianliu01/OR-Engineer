@@ -1,12 +1,12 @@
 # OR-Engineer
 
-## A Performance-First Autonomous Agent for Real-World Operations Research
+## A Performance-First Agent for Real-World Operational Problems
 
-**OR-Engineer** autonomously takes a business operations research problem from raw requirements and data to a validated, deployment-ready decision system. It handles the complete workflow: data inspection, mathematical formulation, parallel method exploration, method selection, environment and solver audit, implementation, debugging, tuning, benchmarking, delivery, and technical reporting.
+**OR-Engineer** autonomously takes a business operational problem from raw problem description and data to a validated, deployment-ready decision system. It handles the complete workflow: data inspection, mathematical formulation, method exploration, method selection, environment and solver audit, implementation, debugging, tuning, benchmarking, delivery, and technical reporting.
 
 **Performance comes first.** OR-Engineer searches for the highest-quality deployable solution under the confirmed data, feasibility, runtime, hardware, and licensing constraints. It does not default to the easiest heuristic or the first method that runs. Mathematical programming, theoretical methods, machine learning, simulation, and hybrid approaches compete on solution quality, feasibility, robustness, evidence, and implementation effort before a primary method is selected.
 
-The result is an agent that can autonomously run through a commercial OR scenario end to end-not merely formulate a model or generate a code sample. Users retain control through explicit decision gates, while the agent performs the technical work between those gates and supports every recommendation with benchmarks, diagnostics, and reproducible artifacts.
+The result is an agent that can autonomously run through a commercial OR scenario end to end. Users retain control through explicit decision gates, while the agent performs the technical work between those gates and supports every recommendation with benchmarks, diagnostics, and reproducible artifacts.
 
 | Core property | OR-Engineer behavior |
 |---|---|
@@ -34,7 +34,7 @@ Created and maintained by [Xiaotian Liu](mailto:xiaotianliu01@gmail.com).
 
 ## Usage Guide
 
-### 1. Install the skill
+### 1. Install the skill in Codex
 
 Copy the [`or-engineer`](or-engineer/) directory into your Codex skills directory:
 
@@ -54,20 +54,7 @@ Restart Codex after installation if the skill is not discovered immediately.
 
 ### 2. Start with a decision problem
 
-Invoke the skill explicitly and describe the operational decision, data, objective, constraints, uncertainty, runtime expectations, and deployment requirements:
-
-```text
-$or-engineer
-
-Help me solve [decision problem].
-
-Data: [files, folders, schemas, or links]
-Decision: [what must be chosen and when]
-Objective: [cost, service, profit, risk, or multiple criteria]
-Constraints: [capacity, feasibility, resources, timing, policy rules]
-Uncertainty: [demand, duration, yield, price, arrivals, disruptions]
-Deployment target: [runtime, solver, hardware, license, output format]
-```
+Invoke the skill explicitly and describe the operational decision, data, objective, constraints, uncertainty, runtime expectations, and deployment requirements. See examples in case study listed below.
 
 Attaching the actual data is strongly recommended. If business parameters are missing, state which values may be estimated or replaced with documented OR baselines.
 
@@ -200,9 +187,9 @@ flowchart TB
 
 ## End-to-End Case Studies
 
-The following three cases demonstrate that the agent does not force every business problem into the same algorithm. It autonomously selected mathematical programming for nonlinear production scheduling, machine learning for feature-conditioned inventory decisions, and stochastic programming for operating-room assignment—then validated each choice against problem-appropriate baselines.
+The following three cases demonstrate that the agent does not force every business problem into the same algorithm. It autonomously selected mathematical programming for nonlinear production scheduling, machine learning for feature-conditioned inventory decisions, and stochastic programming for operating-room assignment. It validated each choice against problem-appropriate baselines.
 
-These are actual OR-Engineer runs preserved in this repository. Each case used **GPT-5.5 High**. Development was **fully autonomous and end to end**: the user supplied only the original prompt, while GPT performed the data inspection, formulation, method exploration and selection, deployment design, implementation, debugging, testing, tuning, benchmarking, and reporting. The user made **no modifications and provided no corrective feedback** during development.
+These are actual OR-Engineer runs. Each case used **GPT-5.5 High**. Development was **fully autonomous and end to end**: the user supplied only the original prompt, while GPT performed the data inspection, formulation, method exploration and selection, deployment design, implementation, debugging, testing, tuning, benchmarking, and reporting. The user made **no modifications and provided no corrective feedback** during development.
 
 ### Case 1 — Multi-Echelon BOM Production Scheduling
 
@@ -213,14 +200,11 @@ These are actual OR-Engineer runs preserved in this repository. Each case used *
 | User involvement | Original prompt only; **no user modifications or feedback** |
 | Selected primary method | Rolling-horizon SAA PWL MILP/MPC |
 
-<details>
 <summary><strong>Original prompt</strong></summary>
 
 ```text
 Help me design an intelligent production scheduling strategy for a multi-echelon production network. The topology of this network is calculated based on the BOM (Bill of Materials) and will be provided as a matrix $\boldsymbol{M}$, where $M_{ij}$ represents the number of units of $i$ required to produce one unit of $j$. Regarding the business pain point and core model, our current scheduling logic is too idealized, assuming infinite shop-floor capacity and Fixed Planned Lead Times (FPLT). We must change this by introducing a Clearing Function (CF) to constrain capacity, meaning the actual production output $P_t$ is a nonlinear concave function of the current Work-in-Process (WIP) plus the planned production quantity $Q_t$ for the current period: $P_t = \varphi(W_t + Q_t)$, which makes the entire production model highly nonlinear. In terms of network constraints and costs, there are two types of nodes in the system subject to different constraints. External nodes (customer-facing) face random demand $D_t$, where shortages are allowed (incurring backlog costs), and the state transition equation is $I_{t+1} = I_t - D_t + P_t$. Internal nodes (supplying downstream) strictly prohibit shortages and must satisfy the material withdrawal demand of downstream nodes (a hard constraint), with the state transition equation being $I_{t+1} = I_t - \sum_{j} M_{ij} Q^j_t + P_t$. The cost $C_t$ for each node includes an inventory holding cost that is linear with respect to the inventory level, a shortage cost (for external nodes only) that is linear with respect to the backlog, and a fixed setup cost incurred each time production starts (a fixed charge modeled with an indicator variable). Your task is to minimize the total expected cost of the system. However, due to the introduction of the nonlinear CF and the fixed setup costs, this problem is now non-convex. The data is located in the MSOM Excel file within the current directory, where the CF is exponential, monotonically increasing, and concave, the $\boldsymbol{M}$ matrix values are all set to $1$, and the remaining parameters should be set to reasonable Operations Research baseline values, with the initial inventory set to $5$ times the demand to ensure the system does not experience a stockout at the beginning.
 ```
-
-</details>
 
 #### What GPT autonomously built
 
