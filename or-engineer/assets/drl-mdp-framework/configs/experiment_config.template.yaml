@@ -1,0 +1,52 @@
+run:
+  run_id: "YYYYMMDD_HHMMSS_method_case_seed"
+  seed: 1
+  phase: "smoke"  # smoke | pilot | run
+  output_dir: "runs/${run.run_id}"
+
+problem:
+  env_name: "TaskSpecificEnv"
+  multi_agent: false
+  horizon: null
+  discount: 0.99
+  data_path: null
+  scenario_path: null
+
+quality_gate:
+  primary_metric: "eval_return_or_cost"
+  objective: "maximize"  # maximize | minimize
+  strong_baseline: null
+  target_improvement_pct: null
+  max_feasibility_violation: 0.0
+  pilot_failure_rule: "redesign if pilot loses to the strongest feasible baseline"
+  fallback_trigger: "select fallback if all redesign attempts fail or best checkpoint remains below threshold"
+  fallback_minimum_acceptance: null
+  max_pilot_redesign_attempts: 3
+  redesign_parameters:
+    - evaluation_interval
+    - reward_scaling
+    - observation_normalization
+    - action_encoding
+    - learning_rate
+    - entropy_or_exploration
+    - rollout_or_batch_size
+    - model_capacity
+    - total_timesteps
+    - warm_start_or_residual_anchor
+
+logging:
+  status_path: "run_records/status.json"
+  progress_path: "run_records/progress.csv"
+  artifact_manifest_path: "run_records/artifact_manifest.json"
+  checkpoint_dir: "checkpoints"
+  best_checkpoint_path: "checkpoints/best_policy"
+  last_checkpoint_path: "checkpoints/last_policy"
+
+fallback:
+  method_id: null
+  description: null
+  role: "fallback_candidate"
+  implementation: null
+  config_path: null
+  dependency_status: "available | requires_install | blocked"
+  evaluated_with_primary_protocol: true

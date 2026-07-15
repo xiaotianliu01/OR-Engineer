@@ -1,0 +1,14 @@
+numpy
+pandas
+scipy
+pyomo
+pulp
+ortools
+cvxpy
+highspy
+python-mip
+gurobipy
+cplex
+mosek
+amplpy
+matplotlib

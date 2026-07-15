@@ -1,0 +1,6 @@
+numpy
+pandas
+ortools
+minizinc
+cpmpy
+matplotlib

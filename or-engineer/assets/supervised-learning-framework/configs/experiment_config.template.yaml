@@ -1,0 +1,39 @@
+experiment:
+  name: "supervised_experiment"
+  task_type: "mean_regression"  # mean_regression | quantile_regression | forecasting | classification | ranking | surrogate
+  phase: "smoke"  # smoke | pilot | run
+  seed: 123
+
+data:
+  input_paths: []
+  entity_key: null
+  time_key: null
+  target_columns: []
+  prediction_time_cutoff: null
+  split_strategy: "time"  # random | grouped | time | rolling_origin | nested_cv
+
+quality_gate:
+  primary_metric: "validation_mae"
+  direction: "minimize"
+  baseline_names: []
+  target_improvement_pct: 0.0
+  failure_rule: "redesign if the selected model does not beat the strongest feasible baseline"
+  fallback_trigger: "select fallback if all redesign attempts fail or best model remains below threshold"
+  fallback_minimum_acceptance: null
+  max_pilot_redesign_attempts: 3
+
+run_records:
+  output_root: "runs"
+  save_progress_every_steps: 100
+  save_model: true
+  best_model_path: "models/best_model"
+  last_model_path: "models/last_model"
+
+fallback:
+  model_id: null
+  description: null
+  role: "fallback_candidate"
+  implementation: null
+  config_path: null
+  dependency_status: "available | requires_install | blocked"
+  evaluated_with_primary_protocol: true

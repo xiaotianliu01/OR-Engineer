@@ -1,0 +1,15 @@
+master_solver:
+  solver_name: "task_specific"
+  time_limit_seconds: null
+  mip_gap: null
+
+subproblem_solver:
+  solver_name: "task_specific"
+  time_limit_seconds: null
+  mip_gap: null
+
+coordination:
+  cut_management: null
+  stabilization: null
+  penalty_update: null
+  warm_start: true

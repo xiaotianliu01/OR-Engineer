@@ -1,0 +1,11 @@
+numpy
+pandas
+scipy
+pyomo
+pulp
+ortools
+cvxpy
+highspy
+scikit-learn
+statsmodels
+matplotlib

@@ -1,0 +1,15 @@
+model:
+  family: "MILP"  # LP | MILP | MIQP | QP | SOCP | SDP | NLP | MINLP | rolling_horizon
+  objective_sense: "minimize"
+  index_sets: []
+  parameter_sources: []
+  variable_blocks: []
+  constraint_blocks: []
+  objective_terms: []
+  units: {}
+
+quality_gate:
+  acceptable_statuses: ["optimal", "feasible_time_limit"]
+  maximum_relative_gap: 0.05
+  maximum_feasibility_violation: 1.0e-6
+  baseline_names: []

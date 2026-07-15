@@ -1,0 +1,26 @@
+{
+  "run_id": "uncertain_opt_YYYYMMDD_HHMMSS",
+  "phase": "smoke | pilot | run",
+  "method": "saa | scenario_tree | robust | dro | chance_constrained | cvar",
+  "uncertainty": {
+    "uncertain_parameters": [],
+    "model_type": null,
+    "scenario_counts": {},
+    "risk_level": null,
+    "ambiguity_radius": null
+  },
+  "solver": {
+    "solver_name": null,
+    "time_limit_seconds": null,
+    "mip_gap": null
+  },
+  "quality_gate": {
+    "maximum_out_of_sample_violation_rate": null,
+    "target_improvement_over_baseline": null,
+    "maximum_relative_gap": null
+  },
+  "execution": {
+    "command": null,
+    "started_at": null
+  }
+}

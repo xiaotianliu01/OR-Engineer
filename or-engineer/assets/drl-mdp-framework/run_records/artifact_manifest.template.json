@@ -1,0 +1,38 @@
+{
+  "skill_maintainer": {"name": "Xiaotian Liu", "email": "xiaotianliu01@gmail.com"},
+  "run_config.json": {
+    "purpose": "Frozen run configuration, method, data paths, budget, acceptance criteria, and rerun command.",
+    "schema": "JSON",
+    "update_frequency": "created before run"
+  },
+  "status.json": {
+    "purpose": "Current phase, health, progress counters, ETA, throughput, current best metric, and last error.",
+    "schema": "JSON",
+    "update_frequency": "updated during runs"
+  },
+  "progress.csv": {
+    "purpose": "Longitudinal training progress, completed/total units, percent, ETA, throughput, evaluation, loss, feasibility, and benchmark metrics.",
+    "schema": "CSV using progress.schema.csv",
+    "update_frequency": "append at train/evaluation intervals"
+  },
+  "checkpoints/": {
+    "purpose": "Policy, value, Q, world-model, optimizer, and normalization states needed for restart and evaluation. Must include the selected best checkpoint and may include the last checkpoint for diagnostics.",
+    "schema": "framework-specific binary files",
+    "update_frequency": "checkpoint interval, best-policy updates, and final last-checkpoint save"
+  },
+  "checkpoints/best_*": {
+    "purpose": "Best model selected by held-out evaluation metric; final evaluation should load this by default.",
+    "schema": "method-specific checkpoint plus normalization/preprocessing metadata",
+    "update_frequency": "updated whenever validation/evaluation metric improves"
+  },
+  "evaluation/": {
+    "purpose": "Per-seed and aggregate evaluation results against baselines and bounds.",
+    "schema": "CSV or JSON",
+    "update_frequency": "pilot and final evaluation"
+  },
+  "results/fallback_selection.json": {
+    "purpose": "Training-instability fallback record: declared fallback method, trigger, fallback metric, primary metric, activation status, and selected handoff method.",
+    "schema": "JSON",
+    "update_frequency": "pilot and final evaluation when training methods are used"
+  }
+}

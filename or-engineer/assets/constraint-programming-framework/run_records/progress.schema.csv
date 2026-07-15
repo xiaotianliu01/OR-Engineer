@@ -1,0 +1,1 @@
+timestamp,elapsed_seconds,progress_index,total_progress_units,progress_pct,eta_seconds,throughput_per_min,phase,solution_count,objective_value,best_bound,relative_gap,conflicts,branches,restarts,feasibility_violation,soft_penalty,solver_status,notes

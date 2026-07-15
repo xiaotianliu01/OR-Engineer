@@ -1,0 +1,18 @@
+simulation:
+  instance_paths: []
+  horizon: null
+  warmup_period: null
+  objective_sense: "minimize"
+  optimization_seed_set: []
+  final_evaluation_seed_set: []
+  common_random_numbers: true
+
+replications:
+  smoke: 1
+  pilot_per_candidate: 5
+  final_per_candidate: 50
+
+quality_gate:
+  baseline_names: []
+  target_improvement_pct: null
+  maximum_violation_rate: null

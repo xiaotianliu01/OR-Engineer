@@ -1,0 +1,23 @@
+# Optional dependency families. Install only what the selected implementation needs.
+numpy
+pandas
+scipy
+matplotlib
+torch
+gymnasium
+tensorboard
+tensorboardX
+stable-baselines3
+ray[rllib]
+tianshou
+cleanrl
+pettingzoo
+supersuit
+minigrid
+dm-control
+wandb
+hydra-core
+omegaconf
+pyyaml
+scikit-learn
+

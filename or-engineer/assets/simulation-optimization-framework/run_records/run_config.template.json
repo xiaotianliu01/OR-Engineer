@@ -1,0 +1,27 @@
+{
+  "run_id": "simopt_YYYYMMDD_HHMMSS",
+  "phase": "smoke | pilot | run",
+  "simulation": {
+    "instance_paths": [],
+    "horizon": null,
+    "objective_sense": null,
+    "optimization_seed_set": [],
+    "final_evaluation_seed_set": [],
+    "common_random_numbers": true
+  },
+  "search": {
+    "method": null,
+    "candidate_budget": null,
+    "policy_class": null,
+    "parameter_space": {}
+  },
+  "quality_gate": {
+    "baseline_names": [],
+    "target_improvement_pct": null,
+    "maximum_violation_rate": null
+  },
+  "execution": {
+    "command": null,
+    "started_at": null
+  }
+}

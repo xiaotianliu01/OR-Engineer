@@ -1,0 +1,29 @@
+{
+  "asset_name": "mathematical-programming-framework",
+  "maintainer": {"name": "Xiaotian Liu", "email": "xiaotianliu01@gmail.com"},
+  "asset_type": "general_mathematical_programming_scaffold",
+  "default_runnable": false,
+  "purpose": "Reusable scaffold for LP, MILP, MIQP, QP, convex, nonlinear, and mixed-integer nonlinear optimization deployments in OR workflows.",
+  "intended_use": [
+    "Copy this folder into a deployment workspace when the selected method is solver-based mathematical programming.",
+    "Fill formulation, data mapping, solver adapter, solve loop, evaluation, and run-record contracts for the confirmed model.",
+    "Use structured run records to capture solver status, objective, bound, gap, feasibility, runtime, and generated output files."
+  ],
+  "non_goals": [
+    "This asset is not a complete runnable model.",
+    "This asset does not prescribe one solver, modeling package, or model class.",
+    "This asset does not contain task data, licensed solver credentials, or domain-specific formulations.",
+    "This asset must not be used to generate toy or minimal examples that omit real data mapping, constraints, solver status, bounds, gaps, progress output, and feasibility validation."
+  ],
+  "top_level_paths": {
+    "formulations": "Model family catalog and formulation notes.",
+    "models": "Model-building contract and variable/constraint schema.",
+    "solvers": "Solver adapter and status contract.",
+    "data": "Data-to-index and parameter loading notes.",
+    "runners": "Solve-loop contract.",
+    "evaluation": "Solution validation, bounds, and benchmark protocol.",
+    "configs": "Model and solver configuration templates.",
+    "scripts": "Foreground solve, user-facing run, and compact result-collection templates.",
+    "run_records": "Structured solver run logging templates."
+  }
+}

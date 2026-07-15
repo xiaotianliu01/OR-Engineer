@@ -1,0 +1,11 @@
+search:
+  method: "bayesian_optimization"  # grid | random | local_search | tabu | annealing | genetic | cross_entropy | spsa | bayesian_optimization | ranking_selection | surrogate_assisted
+  candidate_budget: null
+  time_limit_seconds: null
+  policy_class: "task_specific"
+  parameter_space: {}
+  random_seed: 123
+
+run:
+  phase: "smoke"  # smoke | pilot | run
+  output_root: "runs"

@@ -1,0 +1,11 @@
+{
+  "run_id": "reformulation_YYYYMMDD_HHMMSS",
+  "phase": "design | validation | sensitivity",
+  "status": "created | running | complete | failed | stopped",
+  "current_block": null,
+  "max_error": null,
+  "max_original_feasibility_violation": null,
+  "last_update_time": null,
+  "elapsed_seconds": null,
+  "last_error": null
+}

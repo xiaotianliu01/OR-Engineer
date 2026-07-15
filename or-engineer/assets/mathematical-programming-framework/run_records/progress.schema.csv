@@ -1,0 +1,1 @@
+timestamp,elapsed_seconds,progress_index,total_progress_units,progress_pct,eta_seconds,throughput_per_min,phase,iteration,node_count,best_objective,best_bound,absolute_gap,relative_gap,feasibility_violation,incumbent_changed,solver_status,notes

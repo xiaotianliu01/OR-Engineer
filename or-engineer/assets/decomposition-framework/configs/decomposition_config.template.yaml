@@ -1,0 +1,17 @@
+decomposition:
+  method: "benders"  # benders | l_shaped | dantzig_wolfe | column_generation | branch_and_price | lagrangian | admm | progressive_hedging | rolling_horizon
+  objective_sense: "minimize"
+  partition_key: null
+  coupling_constraints: []
+  linking_variables: []
+  parallel_subproblems: false
+
+convergence:
+  maximum_iterations: 100
+  relative_gap_tolerance: 0.01
+  absolute_gap_tolerance: null
+  feasibility_tolerance: 1.0e-6
+
+run:
+  phase: "smoke"  # smoke | pilot | run
+  output_root: "runs"

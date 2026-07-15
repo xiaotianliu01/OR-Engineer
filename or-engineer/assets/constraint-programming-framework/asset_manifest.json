@@ -1,0 +1,30 @@
+{
+  "asset_name": "constraint-programming-framework",
+  "maintainer": {"name": "Xiaotian Liu", "email": "xiaotianliu01@gmail.com"},
+  "asset_type": "general_constraint_programming_scaffold",
+  "default_runnable": false,
+  "purpose": "Reusable scaffold for CP, CP-SAT, scheduling, routing, assignment, and combinatorial feasibility or optimization deployments.",
+  "intended_use": [
+    "Copy this folder when the selected method is constraint programming or CP-SAT.",
+    "Fill model, global constraint, schedule, solver adapter, evaluation, and run-record contracts for the confirmed task.",
+    "Use structured records to capture search status, objective, bound, conflicts, branches, feasibility, and solution artifacts."
+  ],
+  "non_goals": [
+    "This asset is not a complete runnable CP model.",
+    "This asset does not assume CP is better than MILP for every combinatorial model.",
+    "This asset does not hide infeasibility, weak objective bounds, or search instability.",
+    "This asset must not be used to generate toy or minimal examples that omit real domains, constraints, status handling, progress output, and validation."
+  ],
+  "top_level_paths": {
+    "models": "CP model-building contract.",
+    "constraints": "Global constraint catalog and constraint block contract.",
+    "schedules": "Interval and schedule modeling notes.",
+    "solvers": "CP solver adapter contract.",
+    "data": "Task, resource, and relation data notes.",
+    "runners": "CP solve-loop contract.",
+    "evaluation": "Feasibility, objective, and search-quality protocol.",
+    "configs": "Model and solver configuration templates.",
+    "scripts": "Foreground run and compact result-collection templates.",
+    "run_records": "Structured CP run logging templates."
+  }
+}

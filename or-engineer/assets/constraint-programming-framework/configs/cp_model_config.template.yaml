@@ -1,0 +1,14 @@
+model:
+  type: "cp_sat"  # cp | cp_sat | minizinc | hybrid_cp_milp
+  objective_sense: "minimize"
+  time_granularity: null
+  variable_blocks: []
+  interval_blocks: []
+  constraint_blocks: []
+  soft_constraint_blocks: []
+  objective_terms: []
+
+quality_gate:
+  acceptable_statuses: ["optimal", "feasible_time_limit"]
+  maximum_relative_gap: null
+  maximum_feasibility_violation: 0

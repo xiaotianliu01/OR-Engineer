@@ -1,0 +1,4 @@
+interface:
+  display_name: "OR-Engineer"
+  short_description: "Rigorous OR/OM models, deployment, and reports"
+  default_prompt: "Use $or-engineer to solve this OR, OM, or mathematical modeling problem with rigorous formulation, performance-ceiling versus implementation-effort method selection, advanced optimization or learning candidates, acceptance criteria, tuning, structured run logs, a handoff-ready code project with run manual, and final PDF technical reporting."

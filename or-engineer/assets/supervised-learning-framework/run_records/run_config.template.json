@@ -1,0 +1,62 @@
+{
+  "run_id": "supervised_YYYYMMDD_HHMMSS",
+  "phase": "smoke | pilot | run",
+  "task_type": "mean_regression | quantile_regression | forecasting | classification | ranking | surrogate",
+  "data": {
+    "input_paths": [],
+    "entity_key": null,
+    "time_key": null,
+    "target_columns": [],
+    "split_strategy": null,
+    "split_manifest_path": null
+  },
+  "model": {
+    "family": null,
+    "name": null,
+    "hyperparameters": {},
+    "feature_pipeline": null,
+    "loss": null,
+    "metrics": []
+  },
+  "baselines": [],
+  "quality_gate": {
+    "primary_metric": null,
+    "direction": null,
+    "target_improvement_pct": null,
+    "minimum_coverage": null,
+    "failure_rule": null
+  },
+  "model_selection": {
+    "metric": null,
+    "mode": "minimize | maximize",
+    "save_best": true,
+    "final_evaluation_model": "best",
+    "also_save_last_for_diagnostics": true
+  },
+  "pilot_redesign": {
+    "max_attempts": 3,
+    "parameters_to_try": []
+  },
+  "fallback_model": {
+    "model_id": null,
+    "role": "fallback_candidate",
+    "family": null,
+    "implementation": null,
+    "config_path": null,
+    "dependency_status": "available | requires_install | blocked",
+    "trigger": "activate if best model fails quality gate, validation is unstable, leakage checks fail, or redesign attempts are exhausted",
+    "acceptance_metric": null,
+    "acceptance_threshold": null,
+    "evaluate_on_same_protocol": true
+  },
+  "environment": {
+    "python": null,
+    "packages": {},
+    "hardware": null
+  },
+  "execution": {
+    "command": null,
+    "seed": null,
+    "started_at": null
+  }
+}

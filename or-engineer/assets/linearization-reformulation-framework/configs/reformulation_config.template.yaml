@@ -1,0 +1,16 @@
+reformulation:
+  name: "task_specific_reformulation"
+  patterns: []
+  exactness_target: "exact_or_valid_bound"
+  variable_bounds_source: "confirmed_formulation"
+  scaling: {}
+
+pwl:
+  enabled: false
+  segment_count: null
+  breakpoint_rule: "uniform"  # uniform | adaptive | quantile | custom
+  domain: null
+
+big_m:
+  require_documented_bounds: true
+  maximum_allowed_magnitude: null

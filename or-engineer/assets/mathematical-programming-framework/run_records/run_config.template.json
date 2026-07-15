@@ -1,0 +1,29 @@
+{
+  "run_id": "mp_YYYYMMDD_HHMMSS",
+  "phase": "smoke | pilot | run",
+  "model_family": "LP | MILP | MIQP | QP | SOCP | SDP | NLP | MINLP | rolling_horizon",
+  "data": {
+    "input_paths": [],
+    "schema_summary": {},
+    "index_sets": {},
+    "parameter_units": {}
+  },
+  "solver": {
+    "modeling_package": null,
+    "solver_name": null,
+    "time_limit_seconds": null,
+    "mip_gap": null,
+    "threads": null,
+    "seed": null
+  },
+  "quality_gate": {
+    "acceptable_statuses": [],
+    "maximum_relative_gap": null,
+    "maximum_feasibility_violation": null,
+    "baseline_names": []
+  },
+  "execution": {
+    "command": null,
+    "started_at": null
+  }
+}

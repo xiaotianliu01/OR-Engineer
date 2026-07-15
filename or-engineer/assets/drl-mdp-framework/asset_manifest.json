@@ -1,0 +1,48 @@
+{
+  "asset_name": "drl-mdp-framework",
+  "maintainer": {"name": "Xiaotian Liu", "email": "xiaotianliu01@gmail.com"},
+  "scope": "General scaffold for DRL, ADP, and RL solutions to MDP, POMDP, CMDP, and multi-agent MDP problems.",
+  "runnability": "Not runnable by default. The future task must implement environment, data, networks, algorithm, runner, and scripts as needed.",
+  "directories": {
+    "algorithms": "Catalogs and contracts for single-agent, multi-agent, offline, imitation, model-based, and planning RL algorithms.",
+    "data": "Contracts for data loaders, offline trajectories, scenario generators, replay imports, and exogenous process inputs.",
+    "envs": "Contracts for MDP, POMDP, CMDP, and multi-agent environment definitions.",
+    "networks": "Contracts for policy, value, Q, critic, centralized critic, encoder, recurrent, attention, and world-model modules.",
+    "runners": "Contracts for rollout collection, training loops, evaluation loops, checkpointing, and foreground run execution.",
+    "configs": "Experiment and algorithm configuration templates.",
+    "scripts": "Foreground script templates for train, eval, user-facing run scripts, and compact result collection.",
+    "run_records": "Templates for run config, status, progress, artifacts, and convergence records.",
+    "evaluation": "Evaluation protocol and benchmark requirements."
+  },
+  "algorithm_families": [
+    "DQN family",
+    "Policy gradient",
+    "Actor-critic",
+    "Deterministic actor-critic",
+    "Maximum-entropy actor-critic",
+    "Distributional RL",
+    "Constrained RL",
+    "Offline RL",
+    "Imitation learning",
+    "Model-based RL",
+    "MCTS and planning",
+    "Independent multi-agent RL",
+    "Centralized-training decentralized-execution",
+    "Value decomposition",
+    "Mean-field and communication-based MARL"
+  ],
+  "excluded": [
+    "Problem-specific environment code",
+    "Problem-specific data",
+    "Historical checkpoints",
+    "Large training logs",
+    "Domain-specific baselines"
+  ],
+  "industrial_quality_policy": [
+    "Do not use this asset to generate toy or minimal RL examples.",
+    "A deployment must implement task-specific state, action, reward, transition, feasibility, baseline, evaluation, progress-output, and run-record contracts.",
+    "Training must periodically evaluate on held-out seeds or scenarios, save the best checkpoint, and use that checkpoint for final evaluation by default.",
+    "A pilot must show meaningful learning or objective improvement against a strong baseline before recommending a user-facing `run`; a weak first pilot should trigger targeted redesign attempts when budget allows.",
+    "Training deployments must define a credible fallback policy or method before pilot runs and evaluate it under the same protocol if learning is unstable, underperforms, or exhausts the redesign budget."
+  ]
+}

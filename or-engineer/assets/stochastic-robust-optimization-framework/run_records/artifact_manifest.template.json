@@ -1,0 +1,42 @@
+{
+  "skill_maintainer": {"name": "Xiaotian Liu", "email": "xiaotianliu01@gmail.com"},
+  "run_id": "uncertain_opt_YYYYMMDD_HHMMSS",
+  "artifacts": [
+    {
+      "path": "run_config.json",
+      "purpose": "Uncertainty model, scenario counts, risk settings, solver settings, acceptance criteria, and run command.",
+      "schema": "JSON object",
+      "update_frequency": "created before run"
+    },
+    {
+      "path": "status.json",
+      "purpose": "Current solve and out-of-sample evaluation status, elapsed time, ETA, and error state.",
+      "schema": "JSON object",
+      "update_frequency": "periodic"
+    },
+    {
+      "path": "progress.csv",
+      "purpose": "Scenario optimization progress, completed/total units, percent, ETA, throughput, objective, gap, violation, risk, and baseline metrics.",
+      "schema": "CSV matching progress.schema.csv",
+      "update_frequency": "periodic"
+    },
+    {
+      "path": "scenarios/",
+      "purpose": "Scenario manifests, probabilities, and random seeds.",
+      "schema": "CSV or JSON",
+      "update_frequency": "before solve and evaluation"
+    },
+    {
+      "path": "solution/",
+      "purpose": "First-stage solution, recourse summaries, and feasibility checks.",
+      "schema": "CSV or JSON",
+      "update_frequency": "after solve"
+    },
+    {
+      "path": "evaluation/",
+      "purpose": "Out-of-sample objective, service, risk, violation, and baseline comparison reports.",
+      "schema": "CSV or JSON",
+      "update_frequency": "after evaluation"
+    }
+  ]
+}

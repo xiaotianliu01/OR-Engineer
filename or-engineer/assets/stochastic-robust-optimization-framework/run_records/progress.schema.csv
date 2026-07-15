@@ -1,0 +1,1 @@
+timestamp,elapsed_seconds,progress_index,total_progress_units,progress_pct,eta_seconds,throughput_per_min,phase,iteration,scenario_count,solver_status,in_sample_objective,out_of_sample_objective,best_bound,relative_gap,violation_rate,cvar,worst_case_cost,baseline_objective,notes

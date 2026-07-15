@@ -1,0 +1,13 @@
+{
+  "run_id": "decomposition_YYYYMMDD_HHMMSS",
+  "phase": "smoke | pilot | run",
+  "status": "created | running | complete | failed | stopped",
+  "iteration": null,
+  "lower_bound": null,
+  "upper_bound": null,
+  "relative_gap": null,
+  "incumbent_feasible": null,
+  "last_update_time": null,
+  "elapsed_seconds": null,
+  "last_error": null
+}

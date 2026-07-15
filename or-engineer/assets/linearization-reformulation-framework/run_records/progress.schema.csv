@@ -1,0 +1,1 @@
+timestamp,elapsed_seconds,progress_index,total_progress_units,progress_pct,eta_seconds,throughput_per_min,phase,block_name,pattern,exactness_class,segment_count,big_m_value,max_absolute_error,max_relative_error,relaxation_gap,original_feasibility_violation,notes

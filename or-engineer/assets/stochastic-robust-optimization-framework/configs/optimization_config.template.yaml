@@ -1,0 +1,15 @@
+optimization:
+  method: "saa"  # saa | scenario_tree | robust | dro | chance_constrained | cvar
+  objective_sense: "minimize"
+  solver_name: "task_specific"
+  time_limit_seconds: null
+  mip_gap: null
+
+quality_gate:
+  maximum_relative_gap: null
+  maximum_out_of_sample_violation_rate: null
+  target_improvement_over_baseline: null
+
+run:
+  phase: "smoke"  # smoke | pilot | run
+  output_root: "runs"

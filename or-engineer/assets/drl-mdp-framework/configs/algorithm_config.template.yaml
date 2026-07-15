@@ -1,0 +1,43 @@
+algorithm:
+  family: "ppo"  # e.g. dqn | ppo | sac | td3 | cql | mappo | qmix
+  implementation: null
+  device: "auto"
+  total_timesteps: null
+  rollout_steps: null
+  batch_size: null
+  replay_buffer_size: null
+  learning_rate: null
+  gamma: 0.99
+  gae_lambda: 0.95
+  entropy_coef: null
+  clip_range: null
+  target_update_interval: null
+  gradient_clip_norm: null
+  evaluation_interval: null
+  checkpoint_interval: null
+  best_checkpoint_metric: "eval_return_or_cost"
+  best_checkpoint_mode: "max_or_min"
+  final_evaluation_checkpoint: "best"  # best | last | explicit_path
+  max_pilot_redesign_attempts: 3
+
+fallback:
+  method_id: null
+  role: "fallback_candidate"
+  implementation: null
+  trigger: "activate if best checkpoint fails quality gate or learning remains unstable after redesign attempts"
+  acceptance_metric: "eval_return_or_cost"
+  acceptance_threshold: null
+  evaluate_on_same_seeds: true
+
+network:
+  encoder: "mlp"
+  hidden_sizes: []
+  recurrent: false
+  shared_weights: false
+  centralized_critic: false
+  action_head: null
+
+constraints:
+  use_projection: false
+  use_safety_layer: false
+  penalty_weight: null

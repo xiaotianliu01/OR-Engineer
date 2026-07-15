@@ -1,0 +1,12 @@
+solver:
+  solver_name: "ortools_cp_sat"
+  time_limit_seconds: null
+  workers: null
+  random_seed: 123
+  search_branching: null
+  use_hints: true
+  log_search_progress: true
+
+run:
+  phase: "smoke"  # smoke | pilot | run
+  output_root: "runs"

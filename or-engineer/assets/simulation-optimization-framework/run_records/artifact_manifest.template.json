@@ -1,0 +1,42 @@
+{
+  "skill_maintainer": {"name": "Xiaotian Liu", "email": "xiaotianliu01@gmail.com"},
+  "run_id": "simopt_YYYYMMDD_HHMMSS",
+  "artifacts": [
+    {
+      "path": "run_config.json",
+      "purpose": "Simulation inputs, search method, seed sets, acceptance criteria, and run command.",
+      "schema": "JSON object",
+      "update_frequency": "created before run"
+    },
+    {
+      "path": "status.json",
+      "purpose": "Current search status, candidate count, simulation count, incumbent, elapsed time, ETA, and error state.",
+      "schema": "JSON object",
+      "update_frequency": "periodic"
+    },
+    {
+      "path": "progress.csv",
+      "purpose": "Candidate-level completed/total units, percent, ETA, throughput, objective, uncertainty, baseline gap, feasibility, and incumbent history.",
+      "schema": "CSV matching progress.schema.csv",
+      "update_frequency": "per candidate or iteration"
+    },
+    {
+      "path": "candidates/",
+      "purpose": "Candidate policies, parameters, and repair or projection metadata.",
+      "schema": "CSV or JSON",
+      "update_frequency": "periodic"
+    },
+    {
+      "path": "evaluation/",
+      "purpose": "Fresh-seed evaluation, confidence intervals, baseline comparisons, and final selection report.",
+      "schema": "CSV or JSON",
+      "update_frequency": "after pilot and final evaluation"
+    },
+    {
+      "path": "trajectories/",
+      "purpose": "Optional sampled trajectory summaries for diagnostics and reproducibility.",
+      "schema": "task-specific files",
+      "update_frequency": "optional"
+    }
+  ]
+}

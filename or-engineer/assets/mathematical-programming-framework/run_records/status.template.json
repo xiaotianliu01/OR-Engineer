@@ -1,0 +1,13 @@
+{
+  "run_id": "mp_YYYYMMDD_HHMMSS",
+  "phase": "smoke | pilot | run",
+  "status": "created | running | complete | failed | stopped",
+  "solver_status": null,
+  "termination_condition": null,
+  "objective_value": null,
+  "best_bound": null,
+  "relative_gap": null,
+  "last_update_time": null,
+  "elapsed_seconds": null,
+  "last_error": null
+}

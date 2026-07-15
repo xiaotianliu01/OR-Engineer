@@ -1,0 +1,36 @@
+{
+  "skill_maintainer": {"name": "Xiaotian Liu", "email": "xiaotianliu01@gmail.com"},
+  "run_id": "reformulation_YYYYMMDD_HHMMSS",
+  "artifacts": [
+    {
+      "path": "run_config.json",
+      "purpose": "Original blocks, selected reformulations, bounds, segment counts, big-M values, and acceptance criteria.",
+      "schema": "JSON object",
+      "update_frequency": "created before run"
+    },
+    {
+      "path": "status.json",
+      "purpose": "Current reformulation and validation status, elapsed time, ETA, and error state.",
+      "schema": "JSON object",
+      "update_frequency": "periodic"
+    },
+    {
+      "path": "progress.csv",
+      "purpose": "Block-level completed/total units, percent, ETA, throughput, approximation error, relaxation gap, and sensitivity records.",
+      "schema": "CSV matching progress.schema.csv",
+      "update_frequency": "per block or sensitivity setting"
+    },
+    {
+      "path": "transformed_model/",
+      "purpose": "Generated reformulated model blocks or model export.",
+      "schema": "task-specific files",
+      "update_frequency": "after reformulation"
+    },
+    {
+      "path": "validation/",
+      "purpose": "Approximation, original-feasibility, and sensitivity reports.",
+      "schema": "CSV or JSON",
+      "update_frequency": "after validation"
+    }
+  ]
+}

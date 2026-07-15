@@ -1,0 +1,26 @@
+{
+  "run_id": "cp_YYYYMMDD_HHMMSS",
+  "phase": "smoke | pilot | run",
+  "model": {
+    "type": "cp | cp_sat | minizinc | hybrid_cp_milp",
+    "objective_sense": null,
+    "time_granularity": null,
+    "constraint_blocks": [],
+    "soft_constraint_blocks": []
+  },
+  "solver": {
+    "solver_name": null,
+    "time_limit_seconds": null,
+    "workers": null,
+    "seed": null
+  },
+  "quality_gate": {
+    "acceptable_statuses": [],
+    "maximum_relative_gap": null,
+    "maximum_feasibility_violation": null
+  },
+  "execution": {
+    "command": null,
+    "started_at": null
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "skill_maintainer": {"name": "Xiaotian Liu", "email": "xiaotianliu01@gmail.com"},
+  "run_id": "mp_YYYYMMDD_HHMMSS",
+  "artifacts": [
+    {
+      "path": "run_config.json",
+      "purpose": "Data, model family, solver settings, acceptance criteria, and run command.",
+      "schema": "JSON object",
+      "update_frequency": "created before run"
+    },
+    {
+      "path": "status.json",
+      "purpose": "Current solver status, objective, bound, gap, elapsed time, ETA, and error state.",
+      "schema": "JSON object",
+      "update_frequency": "periodic"
+    },
+    {
+      "path": "progress.csv",
+      "purpose": "Longitudinal solver progress, completed/total units, percent, ETA, throughput, gap, feasibility, and incumbent information.",
+      "schema": "CSV matching progress.schema.csv",
+      "update_frequency": "periodic when available"
+    },
+    {
+      "path": "model/",
+      "purpose": "Exported model files such as lp, mps, nl, or package-specific artifacts.",
+      "schema": "solver-specific files",
+      "update_frequency": "before solve"
+    },
+    {
+      "path": "solution/",
+      "purpose": "Decision-variable values, objective reconstruction, constraint checks, and benchmark gaps.",
+      "schema": "CSV or JSON",
+      "update_frequency": "after solve"
+    }
+  ]
+}

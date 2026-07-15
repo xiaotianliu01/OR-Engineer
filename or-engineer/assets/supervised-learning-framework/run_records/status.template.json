@@ -1,0 +1,23 @@
+{
+  "run_id": "supervised_YYYYMMDD_HHMMSS",
+  "phase": "smoke | pilot | run",
+  "status": "created | running | complete | failed | stopped",
+  "current_epoch": null,
+  "current_step": null,
+  "best_metric": null,
+  "best_metric_name": null,
+  "best_epoch": null,
+  "best_model_path": null,
+  "last_model_path": null,
+  "selected_model_for_final_eval": null,
+  "pilot_redesign_attempt": 0,
+  "max_pilot_redesign_attempts": null,
+  "fallback_model_id": null,
+  "fallback_evaluated": false,
+  "fallback_activated": false,
+  "fallback_activation_reason": null,
+  "selected_model_for_handoff": "primary | fallback | ensemble_or_hybrid | preliminary | none",
+  "last_update_time": null,
+  "elapsed_seconds": null,
+  "last_error": null
+}

@@ -1,0 +1,63 @@
+{
+  "run_id": "YYYYMMDD_HHMMSS_method_case_seed",
+  "phase": "smoke | pilot | run",
+  "method": {
+    "algorithm_family": "ppo | sac | dqn | cql | mappo | qmix | other",
+    "implementation": "task-specific module path",
+    "single_or_multi_agent": "single | multi"
+  },
+  "problem": {
+    "env_name": "TaskSpecificEnv",
+    "state_definition": "documented in envs/",
+    "observation_definition": "documented in envs/",
+    "action_definition": "documented in envs/",
+    "reward_or_cost_definition": "documented in envs/",
+    "data_or_scenario_paths": []
+  },
+  "budget": {
+    "total_timesteps": null,
+    "episodes": null,
+    "evaluation_episodes": null,
+    "evaluation_interval": null,
+    "seed_count": null,
+    "wall_clock_limit_minutes": null
+  },
+  "checkpoint_selection": {
+    "metric": null,
+    "mode": "maximize | minimize",
+    "save_best": true,
+    "final_evaluation_checkpoint": "best",
+    "also_save_last_for_diagnostics": true
+  },
+  "pilot_redesign": {
+    "max_attempts": 3,
+    "parameters_to_try": []
+  },
+  "fallback_method": {
+    "method_id": null,
+    "role": "fallback_candidate",
+    "implementation": null,
+    "config_path": null,
+    "dependency_status": "available | requires_install | blocked",
+    "trigger": "activate if best checkpoint fails quality gate, learning is unstable, dependency setup fails, or redesign attempts are exhausted",
+    "acceptance_metric": null,
+    "acceptance_threshold": null,
+    "evaluate_on_same_protocol": true
+  },
+  "quality_gate": {
+    "primary_metric": null,
+    "objective": "maximize | minimize",
+    "strong_baseline": null,
+    "target_gap_or_improvement": null,
+    "feasibility_threshold": null,
+    "failure_rule": null
+  },
+  "outputs": {
+    "status": "run_records/status.json",
+    "progress": "run_records/progress.csv",
+    "artifact_manifest": "run_records/artifact_manifest.json",
+    "checkpoints": "checkpoints/",
+    "fallback_selection": "results/fallback_selection.json",
+    "evaluation": "evaluation/"
+  }
+}

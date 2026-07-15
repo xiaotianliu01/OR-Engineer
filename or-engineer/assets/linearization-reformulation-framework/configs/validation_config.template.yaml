@@ -1,0 +1,14 @@
+validation:
+  sample_points: null
+  scenario_paths: []
+  report_error_units: true
+  segment_sensitivity: []
+  bound_sensitivity: []
+  acceptance:
+    max_absolute_error: null
+    max_relative_error: null
+    max_original_feasibility_violation: null
+
+run:
+  phase: "design"  # design | validation | sensitivity
+  output_root: "runs"

@@ -1,0 +1,33 @@
+{
+  "asset_name": "supervised-learning-framework",
+  "maintainer": {"name": "Xiaotian Liu", "email": "xiaotianliu01@gmail.com"},
+  "asset_type": "general_supervised_learning_scaffold",
+  "default_runnable": false,
+  "purpose": "Reusable scaffold for supervised and deep supervised learning tasks such as demand forecasting, tabular regression, quantile regression, classification, ranking, and surrogate prediction inside OR workflows.",
+  "intended_use": [
+    "Copy this folder into a deployment workspace when a confirmed method needs supervised learning.",
+    "Select an algorithm family from algorithms/ before implementing task-specific code.",
+    "Fill data, feature, model, loss, runner, evaluation, and run-record contracts for the concrete task.",
+    "Training must monitor validation or downstream metrics, save the best model, and use that best model for final evaluation by default.",
+    "Training deployments must define a credible fallback model or rule before pilot runs and evaluate it under the same protocol if training is unstable, underperforms, or exhausts the redesign budget.",
+    "Keep training logs and artifacts compatible with run_records/ templates."
+  ],
+  "non_goals": [
+    "This asset is not a complete runnable package.",
+    "This asset does not prescribe one library or one model class.",
+    "This asset does not contain task data, trained models, or domain-specific feature logic.",
+    "This asset must not be used to generate toy or minimal examples that omit leakage-safe splits, strong baselines, validation metrics, best-model checkpointing, fallback-model planning, progress output, and downstream decision evaluation when relevant."
+  ],
+  "top_level_paths": {
+    "algorithms": "Algorithm catalogs and high-level estimator contract.",
+    "configs": "Experiment and model configuration templates.",
+    "data": "Data loading, schema, split, and leakage-control notes.",
+    "evaluation": "Metric and benchmark protocol.",
+    "features": "Feature pipeline contract and feature governance notes.",
+    "losses": "Loss and scoring contract plus common objective catalog.",
+    "models": "Model family catalog and prediction model contract.",
+    "runners": "Training, evaluation, and prediction-loop contracts.",
+    "scripts": "Foreground shell templates for short runs, user-facing run scripts, and compact result collection.",
+    "run_records": "Structured run logging templates."
+  }
+}

@@ -1,0 +1,1 @@
+timestamp,elapsed_seconds,progress_index,total_progress_units,progress_pct,eta_seconds,throughput_per_min,phase,iteration,lower_bound,upper_bound,absolute_gap,relative_gap,master_objective,subproblem_count,failed_subproblems,cut_count,column_count,multiplier_norm,primal_feasibility_violation,incumbent_changed,notes

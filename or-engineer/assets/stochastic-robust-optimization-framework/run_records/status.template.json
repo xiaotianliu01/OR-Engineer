@@ -1,0 +1,13 @@
+{
+  "run_id": "uncertain_opt_YYYYMMDD_HHMMSS",
+  "phase": "smoke | pilot | run",
+  "status": "created | running | complete | failed | stopped",
+  "solver_status": null,
+  "in_sample_objective": null,
+  "out_of_sample_objective": null,
+  "violation_rate": null,
+  "risk_metric": null,
+  "last_update_time": null,
+  "elapsed_seconds": null,
+  "last_error": null
+}

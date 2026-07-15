@@ -1,0 +1,30 @@
+{
+  "asset_name": "decomposition-framework",
+  "maintainer": {"name": "Xiaotian Liu", "email": "xiaotianliu01@gmail.com"},
+  "asset_type": "general_decomposition_scaffold",
+  "default_runnable": false,
+  "purpose": "Reusable scaffold for decomposing large OR models by scenario, time, resource, route, customer, asset, or complicating variables.",
+  "intended_use": [
+    "Copy this folder when a direct mathematical program is too large or when decomposition can produce stronger bounds, scalable solves, or better structure.",
+    "Select Benders, L-shaped, Dantzig-Wolfe, column generation, branch-and-price, Lagrangian relaxation, ADMM, progressive hedging, or rolling decomposition as appropriate.",
+    "Record master/subproblem progress, cuts, columns, bounds, primal recovery, and convergence status in structured run records."
+  ],
+  "non_goals": [
+    "This asset is not a complete decomposition solver.",
+    "This asset does not assume one decomposition method is always best.",
+    "This asset does not hide weak bounds, unstable cuts, or infeasible primal recovery.",
+    "This asset must not be used to generate toy or minimal examples that omit valid bounds, convergence checks, primal recovery, progress output, and original-model validation."
+  ],
+  "top_level_paths": {
+    "methods": "Decomposition method catalog.",
+    "master": "Master problem contract.",
+    "subproblems": "Subproblem contract.",
+    "coordination": "Cut, column, multiplier, and convergence coordination contracts.",
+    "data": "Partitioning and coupling data notes.",
+    "runners": "Decomposition loop contract.",
+    "evaluation": "Bound, convergence, and primal-solution evaluation.",
+    "configs": "Method and run configuration templates.",
+    "scripts": "Foreground run and compact result-collection templates.",
+    "run_records": "Structured decomposition run logging templates."
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "skill_maintainer": {"name": "Xiaotian Liu", "email": "xiaotianliu01@gmail.com"},
+  "run_id": "supervised_YYYYMMDD_HHMMSS",
+  "artifacts": [
+    {
+      "path": "run_config.json",
+      "purpose": "Configuration, data split, model family, hyperparameters, acceptance criteria, and run command.",
+      "schema": "JSON object",
+      "update_frequency": "created before run"
+    },
+    {
+      "path": "status.json",
+      "purpose": "Current phase, completion status, best metric, elapsed time, ETA, throughput, and last error.",
+      "schema": "JSON object",
+      "update_frequency": "periodic"
+    },
+    {
+      "path": "progress.csv",
+      "purpose": "Tidy longitudinal training progress, completed/total units, percent, ETA, throughput, and validation metrics.",
+      "schema": "CSV matching progress.schema.csv",
+      "update_frequency": "periodic"
+    },
+    {
+      "path": "models/",
+      "purpose": "Saved model, feature pipeline, encoders, scalers, and metadata. Must include the best model selected by validation/downstream metric; may include last model for diagnostics.",
+      "schema": "task-specific files",
+      "update_frequency": "best-model updates and final last-model save"
+    },
+    {
+      "path": "models/best_model",
+      "purpose": "Best model selected by validation or downstream metric; final evaluation should load this by default.",
+      "schema": "model artifact plus feature/preprocessing metadata",
+      "update_frequency": "updated whenever selected metric improves"
+    },
+    {
+      "path": "evaluation/",
+      "purpose": "Validation, test, benchmark, subgroup, horizon, calibration, or downstream decision metrics.",
+      "schema": "CSV or JSON",
+      "update_frequency": "pilot and final evaluation"
+    },
+    {
+      "path": "results/fallback_selection.json",
+      "purpose": "Training-instability fallback record: declared fallback model, trigger, fallback metric, primary metric, activation status, and selected handoff model.",
+      "schema": "JSON",
+      "update_frequency": "pilot and final evaluation when training methods are used"
+    },
+    {
+      "path": "predictions/",
+      "purpose": "Deployable predictions with entity keys, time keys, point estimates, quantiles, probabilities, or scores.",
+      "schema": "CSV, Parquet, or JSON",
+      "update_frequency": "prediction runs"
+    }
+  ]
+}

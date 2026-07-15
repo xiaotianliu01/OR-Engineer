@@ -1,0 +1,36 @@
+{
+  "skill_maintainer": {"name": "Xiaotian Liu", "email": "xiaotianliu01@gmail.com"},
+  "run_id": "cp_YYYYMMDD_HHMMSS",
+  "artifacts": [
+    {
+      "path": "run_config.json",
+      "purpose": "CP model type, constraint blocks, solver settings, acceptance criteria, and run command.",
+      "schema": "JSON object",
+      "update_frequency": "created before run"
+    },
+    {
+      "path": "status.json",
+      "purpose": "Current CP solver status, objective, bound, gap, conflicts, branches, elapsed time, ETA, and error state.",
+      "schema": "JSON object",
+      "update_frequency": "periodic"
+    },
+    {
+      "path": "progress.csv",
+      "purpose": "Search progress, completed/total units, percent, ETA, throughput, objective, bound, conflicts, branches, feasibility, and soft penalties.",
+      "schema": "CSV matching progress.schema.csv",
+      "update_frequency": "periodic when available"
+    },
+    {
+      "path": "model/",
+      "purpose": "Exported model or model summary when supported.",
+      "schema": "solver-specific files",
+      "update_frequency": "before solve"
+    },
+    {
+      "path": "solution/",
+      "purpose": "Schedule, assignment, route, or combinatorial solution plus feasibility checks.",
+      "schema": "CSV or JSON",
+      "update_frequency": "after solve"
+    }
+  ]
+}

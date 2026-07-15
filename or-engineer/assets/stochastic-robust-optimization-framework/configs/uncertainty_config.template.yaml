@@ -1,0 +1,17 @@
+uncertainty:
+  uncertain_parameters: []
+  model_type: "empirical"  # empirical | parametric | bootstrap | scenario_tree | budgeted_set | wasserstein_dro | moment_dro
+  support_bounds: {}
+  dependence_model: null
+  random_seed: 123
+
+scenarios:
+  in_sample_count: 100
+  out_of_sample_count: 1000
+  probabilities: "uniform"
+  common_random_numbers: true
+
+risk:
+  objective: "expected_cost"  # expected_cost | cvar | chance_constraint | worst_case | mean_risk
+  alpha: null
+  ambiguity_radius: null

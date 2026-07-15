@@ -1,0 +1,52 @@
+model:
+  family: "tree_or_neural_or_linear"
+  name: "candidate_model"
+  hyperparameters: {}
+
+features:
+  pipeline_name: "task_specific_feature_pipeline"
+  fit_on_train_only: true
+  target_transform: null
+  categorical_encoding: null
+  numeric_scaling: null
+  lag_features: []
+  known_future_covariates: []
+
+objective:
+  loss: "mae"
+  quantiles: []
+  sample_weight_column: null
+  regularization: {}
+
+training:
+  max_epochs: null
+  early_stopping_metric: "validation_loss"
+  best_model_metric: "validation_loss"
+  best_model_mode: "min_or_max"
+  final_evaluation_model: "best"  # best | last | explicit_path
+  validation_interval: 1
+  patience: null
+  batch_size: null
+  learning_rate: null
+  hyperparameter_search: null
+  max_pilot_redesign_attempts: 3
+  redesign_parameters:
+    - learning_rate
+    - batch_size
+    - model_capacity
+    - regularization
+    - feature_set
+    - target_transform
+    - loss
+    - patience
+    - max_epochs
+
+fallback:
+  model_id: null
+  role: "fallback_candidate"
+  family: "linear_tree_rule_or_incumbent"
+  implementation: null
+  trigger: "activate if best model fails quality gate, validation is unstable, leakage checks fail, or redesign attempts are exhausted"
+  acceptance_metric: "validation_loss"
+  acceptance_threshold: null
+  evaluate_on_same_split: true

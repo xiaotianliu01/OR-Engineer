@@ -1,0 +1,25 @@
+{
+  "run_id": "decomposition_YYYYMMDD_HHMMSS",
+  "phase": "smoke | pilot | run",
+  "method": "benders | l_shaped | dantzig_wolfe | column_generation | branch_and_price | lagrangian | admm | progressive_hedging | rolling_horizon",
+  "partitioning": {
+    "partition_key": null,
+    "partition_count": null,
+    "coupling_constraints": [],
+    "linking_variables": []
+  },
+  "solvers": {
+    "master_solver": null,
+    "subproblem_solver": null
+  },
+  "quality_gate": {
+    "relative_gap_tolerance": null,
+    "absolute_gap_tolerance": null,
+    "maximum_iterations": null,
+    "maximum_feasibility_violation": null
+  },
+  "execution": {
+    "command": null,
+    "started_at": null
+  }
+}

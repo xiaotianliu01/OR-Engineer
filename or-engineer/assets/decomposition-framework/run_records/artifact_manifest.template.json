@@ -1,0 +1,42 @@
+{
+  "skill_maintainer": {"name": "Xiaotian Liu", "email": "xiaotianliu01@gmail.com"},
+  "run_id": "decomposition_YYYYMMDD_HHMMSS",
+  "artifacts": [
+    {
+      "path": "run_config.json",
+      "purpose": "Method, partitioning, solvers, convergence tolerances, and run command.",
+      "schema": "JSON object",
+      "update_frequency": "created before run"
+    },
+    {
+      "path": "status.json",
+      "purpose": "Current iteration, bounds, gap, incumbent feasibility, elapsed time, ETA, and error state.",
+      "schema": "JSON object",
+      "update_frequency": "periodic"
+    },
+    {
+      "path": "progress.csv",
+      "purpose": "Iteration-level completed/total units, percent, ETA, throughput, bounds, gap, cuts, columns, multipliers, and feasibility diagnostics.",
+      "schema": "CSV matching progress.schema.csv",
+      "update_frequency": "per iteration"
+    },
+    {
+      "path": "master/",
+      "purpose": "Master model exports, incumbent solutions, and master logs.",
+      "schema": "task-specific files",
+      "update_frequency": "periodic or final"
+    },
+    {
+      "path": "subproblems/",
+      "purpose": "Subproblem summaries, cuts, columns, feasibility artifacts, and logs.",
+      "schema": "CSV or JSON",
+      "update_frequency": "per iteration or final"
+    },
+    {
+      "path": "solution/",
+      "purpose": "Recovered primal solution and original-model validation.",
+      "schema": "CSV or JSON",
+      "update_frequency": "final"
+    }
+  ]
+}

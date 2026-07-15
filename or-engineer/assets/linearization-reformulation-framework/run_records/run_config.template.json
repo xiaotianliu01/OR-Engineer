@@ -1,0 +1,25 @@
+{
+  "run_id": "reformulation_YYYYMMDD_HHMMSS",
+  "phase": "design | validation | sensitivity",
+  "original_model": {
+    "source": null,
+    "nonlinear_or_logical_blocks": []
+  },
+  "reformulation": {
+    "patterns": [],
+    "exactness_classes": {},
+    "variable_bounds": {},
+    "pwl_segment_counts": {},
+    "big_m_values": {}
+  },
+  "quality_gate": {
+    "max_absolute_error": null,
+    "max_relative_error": null,
+    "max_original_feasibility_violation": null,
+    "required_sensitivity_checks": []
+  },
+  "execution": {
+    "command": null,
+    "started_at": null
+  }
+}
