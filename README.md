@@ -191,7 +191,7 @@ The following three cases demonstrate that the agent does not force every busine
 
 These are actual OR-Engineer runs. Each case used **GPT-5.5 High**. Development was **fully autonomous and end to end**: the user supplied only the original prompt, while GPT performed the data inspection, formulation, method exploration and selection, deployment design, implementation, debugging, testing, tuning, benchmarking, and reporting. The user made **no modifications and provided no corrective feedback** during development.
 
-### Case 1 — Multi-Echelon BOM Production Scheduling
+### Case 1: Multi-Echelon BOM Production Scheduling
 
 | Run metadata | Value |
 |---|---|
@@ -202,9 +202,7 @@ These are actual OR-Engineer runs. Each case used **GPT-5.5 High**. Development 
 
 <summary><strong>Original prompt</strong></summary>
 
-```text
-Help me design an intelligent production scheduling strategy for a multi-echelon production network. The topology of this network is calculated based on the BOM (Bill of Materials) and will be provided as a matrix $\boldsymbol{M}$, where $M_{ij}$ represents the number of units of $i$ required to produce one unit of $j$. Regarding the business pain point and core model, our current scheduling logic is too idealized, assuming infinite shop-floor capacity and Fixed Planned Lead Times (FPLT). We must change this by introducing a Clearing Function (CF) to constrain capacity, meaning the actual production output $P_t$ is a nonlinear concave function of the current Work-in-Process (WIP) plus the planned production quantity $Q_t$ for the current period: $P_t = \varphi(W_t + Q_t)$, which makes the entire production model highly nonlinear. In terms of network constraints and costs, there are two types of nodes in the system subject to different constraints. External nodes (customer-facing) face random demand $D_t$, where shortages are allowed (incurring backlog costs), and the state transition equation is $I_{t+1} = I_t - D_t + P_t$. Internal nodes (supplying downstream) strictly prohibit shortages and must satisfy the material withdrawal demand of downstream nodes (a hard constraint), with the state transition equation being $I_{t+1} = I_t - \sum_{j} M_{ij} Q^j_t + P_t$. The cost $C_t$ for each node includes an inventory holding cost that is linear with respect to the inventory level, a shortage cost (for external nodes only) that is linear with respect to the backlog, and a fixed setup cost incurred each time production starts (a fixed charge modeled with an indicator variable). Your task is to minimize the total expected cost of the system. However, due to the introduction of the nonlinear CF and the fixed setup costs, this problem is now non-convex. The data is located in the MSOM Excel file within the current directory, where the CF is exponential, monotonically increasing, and concave, the $\boldsymbol{M}$ matrix values are all set to $1$, and the remaining parameters should be set to reasonable Operations Research baseline values, with the initial inventory set to $5$ times the demand to ensure the system does not experience a stockout at the beginning.
-```
+>Help me design an intelligent production scheduling strategy for a multi-echelon production network. The topology of this network is calculated based on the BOM (Bill of Materials) and will be provided as a matrix $\boldsymbol{M}$, where $M_{ij}$ represents the number of units of $i$ required to produce one unit of $j$. Regarding the business pain point and core model, our current scheduling logic is too idealized, assuming infinite shop-floor capacity and Fixed Planned Lead Times (FPLT). We must change this by introducing a Clearing Function (CF) to constrain capacity, meaning the actual production output $P_t$ is a nonlinear concave function of the current Work-in-Process (WIP) plus the planned production quantity $Q_t$ for the current period: $P_t = \varphi(W_t + Q_t)$, which makes the entire production model highly nonlinear. In terms of network constraints and costs, there are two types of nodes in the system subject to different constraints. External nodes (customer-facing) face random demand $D_t$, where shortages are allowed (incurring backlog costs), and the state transition equation is $I_{t+1} = I_t - D_t + P_t$. Internal nodes (supplying downstream) strictly prohibit shortages and must satisfy the material withdrawal demand of downstream nodes (a hard constraint), with the state transition equation being $I_{t+1} = I_t - \sum_{j} M_{ij} Q^j_t + P_t$. The cost $C_t$ for each node includes an inventory holding cost that is linear with respect to the inventory level, a shortage cost (for external nodes only) that is linear with respect to the backlog, and a fixed setup cost incurred each time production starts (a fixed charge modeled with an indicator variable). Your task is to minimize the total expected cost of the system. However, due to the introduction of the nonlinear CF and the fixed setup costs, this problem is now non-convex. The data is located in the MSOM Excel file within the current directory, where the CF is exponential, monotonically increasing, and concave, the $\boldsymbol{M}$ matrix values are all set to $1$, and the remaining parameters should be set to reasonable Operations Research baseline values, with the initial inventory set to $5$ times the demand to ensure the system does not experience a stockout at the beginning.
 
 #### What GPT autonomously built
 
@@ -214,19 +212,17 @@ The autonomous workflow also produced a deterministic quantile-inflated PWL MILP
 
 #### Result
 
-On the reported pilot scope—MSOM chain 1, four planning periods, five optimization scenarios, and four held-out evaluation scenarios—the primary method achieved:
+On the reported supply chain network, four planning periods, five optimization scenarios, and four held-out evaluation scenarios, the primary method achieved:
 
 - **Mean total cost:** 1,010.47
 - **Service rate:** 1.00
 - **Internal material violations:** 0
 - **Cost reduction versus the strongest tuned classical baseline:** **51.35%**
-- **Deterministic PWL MILP fallback cost:** 1,013.56, only **0.31%** above the primary method
+- **Deterministic PWL MILP fallback cost:** 1,013.56, **0.31%** above the primary method
 
-This validates the implementation and method on the configured small-chain scope. The report explicitly does not claim an all-38-chain production benchmark.
+This validates the implementation and method on the configured small-chain scope. 
 
-**Evidence:** [original prompt](BOM/prompt.txt) · [formulation report](BOM/formulation_confirmation_report.html) · [method selection](BOM/method_selection_report.html) · [deployment plan](BOM/deployment_confirmation_report.html) · [run manual](BOM/project_delivery_run_manual.html) · [final technical report](BOM/final_technical_report.html)
-
-### Case 2 — Feature-Based Walmart Newsvendor
+### Case 2: Feature-Based Walmart Newsvendor
 
 | Run metadata | Value |
 |---|---|
@@ -235,15 +231,10 @@ This validates the implementation and method on the configured small-chain scope
 | User involvement | Original prompt only; **no user modifications or feedback** |
 | Selected primary method | Quantile gradient boosting |
 
-<details>
 <summary><strong>Original prompt</strong></summary>
 
-```text
-$or-engineer Help me design a data-driven inventory decision model for a feature-based newsvendor problem using the
-  public Walmart retail dataset in the current folder, try different critical ratios
-```
+>Help me design a data-driven inventory decision model for a feature-based newsvendor problem using the public Walmart retail dataset in the current folder, try different critical ratios
 
-</details>
 
 #### What GPT autonomously built
 
@@ -254,17 +245,15 @@ The generated system includes quantile-crossing diagnostics and repair, temporal
 #### Result
 
 - **Validation normalized pinball loss:** 0.020474
-- **Strongest validation baseline:** 0.024460 (`rolling_store_quantile_52`)
+- **Strongest validation baseline:** 0.024460
 - **Validation improvement:** **16.30%**, exceeding the declared 3% acceptance gate
 - **Final test normalized pinball loss:** 0.016377
-- **Strongest final-test baseline:** 0.020065 (`rolling_store_quantile_26`)
+- **Strongest final-test baseline:** 0.020065
 - **Completed runtime:** 106.55 seconds
 
 The result is valid for aggregate store-week sales-dollar decisions. It is not presented as SKU replenishment or profit-optimal physical inventory control because unit demand, inventory, lead-time, cost, and capacity data were unavailable.
 
-**Evidence:** [original prompt](newsvendor/prompt.txt) · [formulation report](newsvendor/formulation_confirmation_report.html) · [method selection](newsvendor/method_selection_report.html) · [deployment plan](newsvendor/deployment_confirmation_report.html) · [run manual](newsvendor/project_delivery_and_run_manual.html) · [final technical report](newsvendor/final_technical_report.html)
-
-### Case 3 — Stochastic Operating Room Assignment
+### Case 3: Stochastic Operating Room Assignment
 
 | Run metadata | Value |
 |---|---|
@@ -273,14 +262,9 @@ The result is valid for aggregate store-week sales-dollar decisions. It is not p
 | User involvement | Original prompt only; **no user modifications or feedback** |
 | Selected primary method | Empirical-scenario SAA MILP |
 
-<details>
 <summary><strong>Original prompt</strong></summary>
 
-```text
-I'm working on a stochastic Operating Room (OR) scheduling problem using surgical duration data extracted from cav file in this folder.The core task is to assign a set of $N$ elective surgeries to $M$ operating rooms. The main challenge is that the actual duration of each surgery, $D_i$, is a highly variable random variable. Let $x_{ij} \in \{0, 1\}$ be the binary decision variable indicating whether surgery $i$ is assigned to room $j$. Each room has a regular scheduled session length $T_j$. We face a classic trade-off: if the total duration of surgeries in a room falls short, we incur an expensive idle capacity cost $c_u$; if it exceeds the scheduled time, we pay a heavy overtime penalty $c_o$.The objective is to minimize the total expected cost across all rooms:$$\min_{\boldsymbol{x}} \sum_{j=1}^M \mathbb{E} \left[ c_u \max\left(0, T_j - \sum_{i=1}^N D_i x_{ij}\right) + c_o \max\left(0, \sum_{i=1}^N D_i x_{ij} - T_j\right) \right]$$subject to the assignment constraint $\sum_{j=1}^M x_{ij} = 1$ for all $i$.Since evaluating this multidimensional expectation over complex clinical distributions is notoriously difficult, could you help me formulate a tractable mathematical framework for this problem?
-```
-
-</details>
+>I'm working on a stochastic Operating Room (OR) scheduling problem using surgical duration data extracted from cav file in this folder.The core task is to assign a set of $N$ elective surgeries to $M$ operating rooms. The main challenge is that the actual duration of each surgery, $D_i$, is a highly variable random variable. Let $x_{ij} \in \{0, 1\}$ be the binary decision variable indicating whether surgery $i$ is assigned to room $j$. Each room has a regular scheduled session length $T_j$. We face a classic trade-off: if the total duration of surgeries in a room falls short, we incur an expensive idle capacity cost $c_u$; if it exceeds the scheduled time, we pay a heavy overtime penalty $c_o$.The objective is to minimize the total expected cost across all rooms:$$\min_{\boldsymbol{x}} \sum_{j=1}^M \mathbb{E} \left[ c_u \max\left(0, T_j - \sum_{i=1}^N D_i x_{ij}\right) + c_o \max\left(0, \sum_{i=1}^N D_i x_{ij} - T_j\right) \right]$$subject to the assignment constraint $\sum_{j=1}^M x_{ij} = 1$ for all $i$.Since evaluating this multidimensional expectation over complex clinical distributions is notoriously difficult, could you help me formulate a tractable mathematical framework for this problem?
 
 #### What GPT autonomously built
 
@@ -301,21 +285,6 @@ Across 12 held-out surgery lists, three seeds, 500 optimization scenarios, and 1
 - **Pairwise wins:** 25/36 versus the best risk-LPT baseline, 33/36 versus deterministic mean MILP, and 36/36 versus booked-time LPT
 
 The report treats this as a deployable stochastic-assignment baseline. It does not claim to model surgeon availability, equipment, room eligibility, sequencing, turnover, downstream beds, anesthesia teams, or hard overtime limits because those fields and constraints were not supplied.
-
-**Evidence:** [original prompt](operating%20room/prompt.txt) · [formulation report](operating%20room/or_formulation_confirmation_report.html) · [method selection](operating%20room/or_method_selection_report.html) · [deployment plan](operating%20room/or_deployment_confirmation_report.html) · [run manual](operating%20room/or_project_delivery_manual.html) · [final technical report](operating%20room/or_final_technical_report.html)
-
-## Repository Layout
-
-```text
-.
-├── or-engineer/       # Installable Codex skill
-├── BOM/               # Multi-echelon production scheduling case
-├── newsvendor/        # Feature-based Walmart newsvendor case
-├── operating room/    # Stochastic OR assignment case
-└── README.md           # GitHub project homepage
-```
-
-Each case directory contains the original prompt and the formulation, method-selection, deployment, delivery, and final technical reports generated by the autonomous workflow.
 
 ## Performance-First Design Principle
 
